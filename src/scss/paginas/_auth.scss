@@ -1,0 +1,16 @@
+@use 'base/variables' as v;
+@use 'base/mixins' as mix;
+@use 'sass:color';
+
+
+.auth{
+    @include mix.contenedor;
+
+    &__heading{
+        @include mix.nombre-pagina;
+    }
+    &__texto{
+        color: v.$azul;
+        text-align: center;
+    }
+}
