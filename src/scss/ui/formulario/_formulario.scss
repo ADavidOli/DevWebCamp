@@ -76,4 +76,11 @@
         @include mix.tags;
         cursor: pointer;
     }
+
+    &__texto{
+        margin-top: 3rem;
+    }
+    &__imagen{
+        max-width: 20rem;
+    }
 }

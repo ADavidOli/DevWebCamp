@@ -181,4 +181,19 @@ class ActiveRecord {
         $resultado = self::$db->query($query);
         return $resultado;
     }
+
+    // obtener total de datos registrados en la tabla..
+    public static function count(){
+        $query = "SELECT COUNT(*) FROM " . static::$tabla;
+        $resultado = self::$db->query($query); 
+        $total = $resultado->fetch_array(); //metodo sql para hacer en arreglo el resultado de las sentencias
+        return array_shift($total);
+    }
+    // obtener una cantidad de datos registrado en la tabla.
+    public static function paginar($registros, $offset){
+        $query = "SELECT * FROM " . static::$tabla . " ORDER BY id DESC LIMIT ${registros} OFFSET ${offset} " ;
+        $resultado = self::consultarSQL($query);
+        return $resultado;
+    }
+
 }

@@ -48,6 +48,17 @@
             name="imagen"
             id="imagen" />
     </div>
+    <!-- aqui mostramos la imagen si es que existe una. -->
+    <?php if(isset($ponente->imagen_actual)){?>
+        <p class="formulario__texto">Imagen Actual:</p>
+        <div class="formulario__imagen">
+            <picture>
+                <source srcset="<?php echo $_ENV['HOST']. '/img/speakers/'. $ponente->imagen;?>.webp" type="image/webp" >
+                <source srcset="<?php echo $_ENV['HOST']. '/img/speakers/'. $ponente->imagen;?>.png" type="image/png" >
+                <img src="<?php echo $_ENV['HOST']. '/img/speakers/'. $ponente->imagen;?>.png?>" alt="imagen ponente">
+            </picture> 
+        </div>
+    <?php }?>
 </fieldset>
 <!-- informacion extra -->
 <fieldset class="formulario__fieldset">
@@ -81,7 +92,7 @@
                 name="redes[facebook]"
                 id="tags_input"
                 placeholder="facebook" 
-                value="<?php echo $ponente->facebook ?? ''; ?>"
+                value="<?php echo $redes->facebook ?? ''; ?>"
                 />
         </div>
     </div>
@@ -96,7 +107,7 @@
                 name="redes[twitter]"
                 id="tags_input"
                 placeholder="twitter" 
-                value="<?php echo $ponente->twitter ?? ''; ?>"
+                value="<?php echo $redes->twitter ?? ''; ?>"
                 />
         </div>
     </div>
@@ -111,7 +122,7 @@
                 name="redes[youtube]"
                 id="tags_input"
                 placeholder="youtube" 
-                value="<?php echo $ponente->youtube ?? ''; ?>"
+                value="<?php echo $redes->youtube ?? ''; ?>"
                 />
         </div>
     </div>
@@ -126,7 +137,7 @@
                 name="redes[instagram]"
                 id="tags_input"
                 placeholder="instagram" 
-                value="<?php echo $ponente->instagram ?? ''; ?>"
+                value="<?php echo $redes->instagram ?? ''; ?>"
                 />
         </div>
     </div>
@@ -141,7 +152,7 @@
                 name="redes[tiktok]"
                 id="tags_input"
                 placeholder="tiktok" 
-                value="<?php echo $ponente->tiktok ?? ''; ?>"
+                value="<?php echo $redes->tiktok ?? ''; ?>"
                 />
         </div>
     </div>
@@ -156,7 +167,7 @@
                 name="redes[github]"
                 id="tags_input"
                 placeholder="github" 
-                value="<?php echo $ponente->github ?? ''; ?>"
+                value="<?php echo $redes->github ?? ''; ?>"
                 />
         </div>
     </div>
