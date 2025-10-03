@@ -7,6 +7,7 @@
   display: flex;
   flex-direction: column;
   background-color: v.$gris-claro;
+  
   &__header {
     background-color: v.$gris-oscuro;
     padding: 2rem;
@@ -91,6 +92,7 @@
     @include mix.boton(v.$azul, v.$blanco);
     text-transform: uppercase;
     font-size: 1.4rem;
+    border-radius: 2rem;
     @include mix.tablet{
       width: auto;
 
@@ -108,6 +110,20 @@
     background-color:v.$blanco;
     padding: 2rem;
     border-radius: 2rem;
+    margin: 2rem;
+
+    &--sm{
+      display: flex;
+      gap: 1rem;
+      align-items: center;
+      flex-direction: column;
+      
+      @include mix.tablet{
+        flex-direction: row;
+        justify-content: space-between;
+      }
+      
+    }
   }
 
   &__formulario{

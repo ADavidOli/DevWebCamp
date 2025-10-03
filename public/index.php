@@ -2,6 +2,8 @@
 
 require_once __DIR__ . '/../includes/app.php';
 
+use Controllers\ApiEventosController;
+use Controllers\ApiPonentesController;
 use MVC\Router;
 use Controllers\AuthController;
 use Controllers\DashboardController;
@@ -9,6 +11,7 @@ use Controllers\EventosController;
 use Controllers\PonentesController;
 use Controllers\RegalosController;
 use Controllers\RegistradosController;
+use Model\Eventos;
 
 $router = new Router();
 
@@ -44,9 +47,20 @@ $router->post('/admin/ponentes/crear',[PonentesController::class, 'crear']);
 $router->get('/admin/ponentes/editar',[PonentesController::class, 'editar']);
 $router->post('/admin/ponentes/editar',[PonentesController::class, 'editar']);
 $router->post('/admin/ponentes/eliminar',[PonentesController::class, 'eliminar']);
-
-
+$router->get('/admin/ponentes/search',[PonentesController::class, 'search']);
+// eventos
 $router->get('/admin/eventos',[EventosController::class, 'index']);
+$router->get('/admin/eventos/crear',[EventosController::class, 'crear']);
+$router->post('/admin/eventos/crear',[EventosController::class, 'crear']);
+$router->get('/admin/eventos/editar',[EventosController::class, 'editar']);
+$router->post('/admin/eventos/editar',[EventosController::class, 'editar']);
+$router->post('/admin/eventos/eliminar',[EventosController::class, 'eliminar']);
+
+// api
+$router->get('/api/eventos-horario',[ApiEventosController::class, 'index']);
+$router->get('/api/ponentes',[ApiPonentesController::class, 'index']);
+
+
 $router->get('/admin/registrados',[RegistradosController::class, 'index']);
 $router->get('/admin/regalos',[RegalosController::class, 'index']);
 

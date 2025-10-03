@@ -16,14 +16,14 @@ class PonentesController
         // paginacion de ponentes.
         $pagina_actual = $_GET['page'];
         $pagina_actual = filter_var($pagina_actual, FILTER_VALIDATE_INT);
-        if(!$pagina_actual || $pagina_actual<1){
+        if (!$pagina_actual || $pagina_actual < 1) {
             header('Location: /admin/ponentes?page=1');
         }
-        $registros_pagina = 6;
+        $registros_pagina = 7;
         $total = ponente::count();
         $paginacion = new Paginacion($pagina_actual, $registros_pagina, $total);
         $offset = $paginacion->offset();
-        if($paginacion->totalPaginas()<$pagina_actual){
+        if ($paginacion->totalPaginas() < $pagina_actual) {
             header('Location: /admin/ponentes?page=1');
         }
         //mostrar datos
@@ -38,7 +38,7 @@ class PonentesController
             'titulo' => 'ponentes / conferencistas',
             'ponentes' => $ponentes,
             'alertas' => $alertas,
-            'paginacion'=> $paginacion->paginacion(),
+            'paginacion' => $paginacion->paginacion(),
         ]);
     }
     //metodo para crear ponentes.
@@ -199,5 +199,24 @@ class PonentesController
                 header('Location: /admin/ponentes');
             }
         }
+    }
+
+    public static function search(Router $router)
+    {
+        if (!is_admin()) {
+            header('Location: /login');
+        }
+        $nombre = $_GET['valor'];
+
+        if(!$nombre){
+            header('Location: /admin/ponentes');
+        }
+        $ponente = ponente::search($nombre);
+
+        
+        $router->render('admin/ponentes/index', [
+            'titulo' => 'ponentes / conferencistas',
+            'ponentes' => $ponente,
+        ]);
     }
 }

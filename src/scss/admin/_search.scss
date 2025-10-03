@@ -1,0 +1,35 @@
+@use "base/variables" as v;
+@use "base/mixins" as mix;
+@use "sass:color";
+
+.search {
+  &__formulario {
+    display: flex;
+    align-items: center;
+  }
+
+  &__input {
+    padding: 0.5rem 1rem;
+    border-radius: 1rem;
+    border: 0.5px solid v.$gris-oscuro;
+    font-size: 1.4rem;
+    &:focus {
+      border-color: v.$azul;
+      outline: none;
+    }
+  }
+
+  &__boton {
+    margin-left: 0.5rem;
+    padding: 0.5rem 1rem;
+    border-radius: 1rem;
+    border: none;
+    background-color: v.$azul;
+    color: v.$blanco;
+    cursor: pointer;
+
+    i {
+      margin-right: 0;
+    }
+  }
+}

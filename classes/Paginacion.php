@@ -35,14 +35,14 @@ class Paginacion{
     public function enlace_anterior(){
          $html='';
         if($this->paginaAnterior()){
-            $html .= "<a class=\"paginacion__enlace panigacion__enlace--texto\" href=\"?page={$this->paginaAnterior()} \"> Anterior &laquo;</a>";
+            $html .= "<a class=\"paginacion__enlace paginacion__enlace--texto\" href=\"?page={$this->paginaAnterior()} \"> Anterior &laquo;</a>";
         }
         return $html;
     }
     public function enlace_siguiente(){
         $html='';
         if($this->paginaSiguiente()){
-            $html .= "<a class=\"paginacion__enlace panigacion__enlace--texto\" href=\"?page={$this->paginaSiguiente()} \"> Siguiente &raquo;</a>";
+            $html .= "<a class=\"paginacion__enlace paginacion__enlace--texto\" href=\"?page={$this->paginaSiguiente()} \"> Siguiente &raquo;</a>";
         }
         return $html;
     }
@@ -51,9 +51,24 @@ class Paginacion{
         if($this->total > 1){
             $html .= '<div class="paginacion">';
             $html .= $this->enlace_anterior();
+            $html .= $this->numeros_paginas();
             $html .= $this->enlace_siguiente();
             $html .= '</div>';
         }
+        return $html;
+    }
+
+    public function numeros_paginas(){
+        $html ='';
+        
+        for($i =1; $i<= $this->totalPaginas(); $i++){
+            if($i === $this->pagina_actual){
+                $html.="<span class=\"paginacion__enlace paginacion__enlace--actual\">{$i}</span>";
+            }else{
+                $html .= "<a class=\"paginacion__enlace paginacion__enlace--numero\" href=\"?page={$i}\">{$i}</a>";
+            }
+        }
+
         return $html;
     }
 }

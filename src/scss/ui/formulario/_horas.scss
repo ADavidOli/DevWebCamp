@@ -1,0 +1,39 @@
+@use 'base/variables' as v;
+@use 'base/mixins' as mix;
+@use 'sass:color';
+
+.horas{
+     @include mix.resetlista;
+     @include mix.grid(1,1rem);
+     @include mix.tablet{
+        @include mix.grid(2,2rem);
+     }
+
+     &__hora{
+        color: v.$azul;
+        border: 1px solid v.$azul;
+        border-radius: 2rem;
+        padding: 1rem;
+        text-align: center;
+
+        &::hover{
+            cursor: pointer;
+        }
+
+        &--seleccionada{
+         color: v.$blanco;
+         background-color: v.$azul;
+        }
+        &--deshabilitada{
+         @extend .horas__hora;
+         border: 1px solid v.$gris;
+         color: v.$gris;
+         opacity: .5;
+
+         &:hover{
+            cursor: not-allowed;
+         }
+        }
+
+     }
+}

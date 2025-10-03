@@ -402,15 +402,19 @@ h3 {
   font-size: 1.8rem;
   color: rgba(26, 27, 21, 0.8);
 }
-.formulario__input, .formulario__input--sociales {
+.formulario__radio {
+  display: flex;
+  gap: 2rem;
+}
+.formulario__input, .formulario__input--sociales, .formulario__select--sociales, .formulario__select {
   padding: 1rem;
   border: 1px solid rgb(176.6, 199, 221.4);
   border-radius: 0.5rem;
 }
-.formulario__input--file {
+.formulario__input--file, .formulario__select--file {
   border: none;
 }
-.formulario__input--sociales {
+.formulario__input--sociales, .formulario__select--sociales {
   flex: 1;
   border-top-left-radius: 0;
   border-bottom-left-radius: 0;
@@ -491,6 +495,44 @@ h3 {
 }
 .acciones__enlace:hover {
   color: #007df4;
+}
+
+.horas {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(1, 1fr);
+}
+@media (min-width: 768px) {
+  .horas {
+    display: grid;
+    gap: 2rem;
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+.horas__hora, .horas__hora--deshabilitada {
+  color: #007df4;
+  border: 1px solid #007df4;
+  border-radius: 2rem;
+  padding: 1rem;
+  text-align: center;
+}
+.horas__hora::hover, .horas__hora--deshabilitada::hover {
+  cursor: pointer;
+}
+.horas__hora--seleccionada {
+  color: #FFFFFF;
+  background-color: #007df4;
+}
+.horas__hora--deshabilitada {
+  border: 1px solid #64748B;
+  color: #64748B;
+  opacity: 0.5;
+}
+.horas__hora--deshabilitada:hover {
+  cursor: not-allowed;
 }
 
 .header {
@@ -870,6 +912,7 @@ h3 {
 .dashboard__boton {
   text-transform: uppercase;
   font-size: 1.4rem;
+  border-radius: 2rem;
 }
 @media (min-width: 768px) {
   .dashboard__boton {
@@ -888,6 +931,19 @@ h3 {
   background-color: #FFFFFF;
   padding: 2rem;
   border-radius: 2rem;
+  margin: 2rem;
+}
+.dashboard__contenedor--sm {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  flex-direction: column;
+}
+@media (min-width: 768px) {
+  .dashboard__contenedor--sm {
+    flex-direction: row;
+    justify-content: space-between;
+  }
 }
 .dashboard__formulario {
   width: min(95%, 80rem);
@@ -899,7 +955,7 @@ h3 {
   border-collapse: collapse;
 }
 .table__thead {
-  background-color: #1E293B;
+  background-color: rgb(0, 72.7459016393, 142);
   color: #FFFFFF;
 }
 .table__th {
@@ -932,5 +988,103 @@ h3 {
 }
 .table__accion:hover {
   cursor: pointer;
+}
+
+.paginacion {
+  margin-top: 5rem;
+  margin-bottom: 3rem;
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+@media (min-width: 768px) {
+  .paginacion {
+    justify-content: flex-end;
+  }
+}
+.paginacion__enlace {
+  color: #007df4;
+  font-size: 2rem;
+}
+.paginacion__enlace--texto {
+  padding: 1rem;
+  border-radius: 0.5rem;
+  border: 1px solid #007df4;
+}
+.paginacion__enlace--texto:hover {
+  background-color: #007df4;
+  color: #FFFFFF;
+  cursor: pointer;
+}
+.paginacion__enlace--numero {
+  font-weight: 700;
+  display: none;
+}
+@media (min-width: 768px) {
+  .paginacion__enlace--numero {
+    display: inline;
+  }
+}
+.paginacion__enlace--actual {
+  color: #64748B;
+  font-weight: 700;
+  display: none;
+}
+@media (min-width: 768px) {
+  .paginacion__enlace--actual {
+    display: inline;
+  }
+}
+
+.search__formulario {
+  display: flex;
+  align-items: center;
+}
+.search__input {
+  padding: 0.5rem 1rem;
+  border-radius: 1rem;
+  border: 0.5px solid #1E293B;
+  font-size: 1.4rem;
+}
+.search__input:focus {
+  border-color: #007df4;
+  outline: none;
+}
+.search__boton {
+  margin-left: 0.5rem;
+  padding: 0.5rem 1rem;
+  border-radius: 1rem;
+  border: none;
+  background-color: #007df4;
+  color: #FFFFFF;
+  cursor: pointer;
+}
+.search__boton i {
+  margin-right: 0;
+}
+
+.Listado-ponentes {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(1, 1fr);
+}
+.Listado-ponentes__ponente, .Listado-ponentes__ponente--seleccionado {
+  color: #007df4;
+  border: 1px solid #007df4;
+  padding: 1rem;
+  border-radius: 2rem;
+  text-align: center;
+}
+.Listado-ponentes__ponente:hover, .Listado-ponentes__ponente--seleccionado:hover {
+  cursor: pointer;
+}
+.Listado-ponentes__ponente--seleccionado {
+  background-color: #007df4;
+  color: #FFFFFF;
 }
 /*# sourceMappingURL=app.css.map */
