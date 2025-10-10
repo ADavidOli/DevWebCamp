@@ -23,6 +23,16 @@
     #{$modificador}__heading {
       color: v.$secundario;
     }
+    .evento__informacion{
+        background-color: v.$secundario;
+        &:hover{
+            background-color: color.adjust(v.$secundario, $lightness: -10%);
+        }
+    }
+}
+  .swiper-button-next,
+  .swiper-button-prev {
+    color: rgba(v.$blanco, 0.5);
   }
 }
 
@@ -36,10 +46,22 @@
     background-color: v.$azul;
     color: v.$blanco;
     transition: 300ms background-color ease;
+    min-height: 160px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 
     &:hover {
       background-color: color.adjust(v.$azul, $lightness: -10%);
     }
+  }
+  &__nombre {
+    font-size: 2.4rem;
+    margin: 0;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
   }
 
   &__introduccion {

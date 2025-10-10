@@ -104,6 +104,7 @@
     color: v.$blanco;
     text-align: center;
     margin-bottom: 2rem;
+    white-space: nowrap;
     @include desktop{
         text-align: left;
         margin: 0;
@@ -121,13 +122,13 @@
             -webkit-font-smoothing: antialiased;
             font-family: "Font Awesome 6 Brands";
         }
-        &[href*="https://facebook.com"]::before{
+        &[href*="/facebook.com"]::before{
             content: "\f39e";
         }
-        &[href*="https://github.com"]::before {
+        &[href*="/github.com"]::before {
             content: "\f09b";
         }  
-        &[href*="https://instagram.com"]::before {
+        &[href*="/instagram.com"]::before {
             content: "\f16d";
         } 
     }

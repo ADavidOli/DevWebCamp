@@ -239,9 +239,12 @@ class ActiveRecord
     }
 
     // obtener total de datos registrados en la tabla..
-    public static function count()
+    public static function count($columna = '', $valor='')
     {
         $query = "SELECT COUNT(*) FROM " . static::$tabla;
+        if($columna){
+            $query.=" WHERE ${columna} = ${valor}";
+        }
         $resultado = self::$db->query($query);
         $total = $resultado->fetch_array(); //metodo sql para hacer en arreglo el resultado de las sentencias
         return array_shift($total);

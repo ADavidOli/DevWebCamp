@@ -1,26 +1,30 @@
-@use 'base/variables' as v;
-@use 'base/mixins' as mix;
-@use 'sass:color';
+@use "base/variables" as v;
+@use "base/mixins" as mix;
+@use "sass:color";
 
-.navegacion{
-    display: flex;
-    flex-direction: column;
-    @include mix.desktop{
-        flex-direction: row;
+.navegacion {
+  display: flex;
+  flex-direction: column;
+  @include mix.desktop {
+    flex-direction: row;
+  }
+
+  &__enlace {
+    color: v.$blanco;
+    font-size: 2.2rem;
+    padding: 1rem;
+    font-weight: v.$black;
+    text-transform: uppercase;
+    text-align: center;
+
+    &:hover {
+      background-color: v.$blanco;
+      color: v.$azul;
     }
+  }
 
-    &__enlace{
-        color: v.$blanco;
-        font-size: 2.2rem;
-        padding: 2rem;
-        font-weight: v.$black;
-        text-transform: uppercase;
-        text-align: center;
-
-        &:hover{
-            background-color: v.$blanco;
-            color: v.$azul;
-        }
-
-    }
+  &__actual {
+    background-color: v.$blanco;
+    color: v.$azul;
+  }
 }

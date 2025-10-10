@@ -14,9 +14,51 @@ class paginascontroller
 
     public static function index(Router $router)
     {
+        $eventos = Eventos::ordenar('hora_id', 'ASC');
+        $eventos_formateado = [];
+        foreach ($eventos as $evento) {
+            // le agregamos un subobjeto a nuestro objeto de evento.
+            // este tendra los datos de acuerdo cada indice creado
+            // categoria, dia, hora, ponente.
+            // cada uno tendra los datos ya buscados de acuerdoa  su id.
+            $evento->categoria = Categorias::find($evento->categoria_id);
+            $evento->dia = Dias::find($evento->dia_id);
+            $evento->hora = Horas::find($evento->hora_id);
+            $evento->ponente = ponente::find($evento->ponente_id);
+
+            // así podemos enlazar datos dentro de un nuevo arreglo con un for each
+            if ($evento->dia_id === "1" && $evento->categoria_id === "1") {
+                $eventos_formateado['conferencias_v'][] = $evento;
+            }
+            if ($evento->dia_id === "2" && $evento->categoria_id === "1") {
+                $eventos_formateado['conferencias_s'][] = $evento;
+            }
+            if ($evento->dia_id === "1" && $evento->categoria_id === "2") {
+                $eventos_formateado['workshops_v'][] = $evento;
+            }
+            if ($evento->dia_id === "2" && $evento->categoria_id === "2") {
+                $eventos_formateado['workshops_s'][] = $evento;
+            }
+        }
+
+        // obtener el total de cada bloque
+        $ponentesTotal = ponente::count();
+        // obtener total de conferencias
+        $conferenciasTotal = Eventos::count('categoria_id', 1);
+        $workshopsTotal = Eventos::count('categoria_id', 2);
+
+        // mostrar ponentes.
+        $ponentes = ponente::all();
+
+        
 
         $router->render('/paginas/index', [
             'titulo' => 'inicio',
+            'eventos' => $eventos_formateado,
+            'ponentesTotal' => $ponentesTotal,
+            'conferenciasTotal' => $conferenciasTotal,
+            'workshopsTotal' => $workshopsTotal,
+            'ponentes'=> $ponentes,
         ]);
     }
 

@@ -1,0 +1,33 @@
+@use "base/variables" as v;
+@use "base/mixins" as mix;
+@use "sass:color";
+
+.boletos {
+  &__grid {
+    @include mix.contenedor-md;
+    @include mix.grid(1, 5rem);
+  }
+}
+.boleto {
+  width: min(100% - 5rem, 65rem);
+  margin: 0 auto;
+  padding: 6rem;
+  border-radius: 2rem;
+
+  &--presencial {
+    background-color: hsla(249, 100%, 50%, 1);
+    background-image: radial-gradient(
+        at 76% 19%,
+        hsla(209, 100%, 47%, 1) 0px,
+        transparent 50%
+      ),
+      radial-gradient(at 0% 50%, hsla(178, 100%, 39%, 1) 0px, transparent 50%),
+      radial-gradient(at 80% 50%, hsla(209, 100%, 47%, 1) 0px, transparent 50%);
+  }
+  &--virtual {
+    background-color: v.$secundario;
+  }
+  &--gratis {
+    background-color: v.$azul;
+  }
+}
