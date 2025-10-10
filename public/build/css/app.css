@@ -691,7 +691,7 @@ h3 {
 }
 
 .boletos__grid {
-  width: min(95%, 80rem);
+  width: min(95%, 60rem);
   margin: 0 auto;
   display: grid;
   gap: 5rem;
@@ -703,6 +703,24 @@ h3 {
   margin: 0 auto;
   padding: 6rem;
   border-radius: 2rem;
+  color: #FFFFFF;
+  position: relative;
+}
+.boleto::before, .boleto::after {
+  position: absolute;
+  content: " ";
+  background-color: #FFFFFF;
+  width: 5rem;
+  height: 5rem;
+  top: calc(50% - 2.5rem);
+}
+.boleto::before {
+  left: 0;
+  clip-path: circle(50% at 25% 50%);
+}
+.boleto::after {
+  right: 0;
+  clip-path: circle(50% at 75% 50%);
 }
 .boleto--presencial {
   background-color: hsl(249, 100%, 50%);
@@ -713,6 +731,63 @@ h3 {
 }
 .boleto--gratis {
   background-color: #007df4;
+}
+.boleto__logo {
+  color: #FFFFFF;
+  text-align: center;
+  margin-bottom: 2rem;
+  white-space: nowrap;
+}
+@media (min-width: 1024px) {
+  .boleto__logo {
+    text-align: left;
+    margin: 0;
+  }
+}
+.boleto__logo {
+  font-size: clamp(2rem, 0.8rem + 10vw, 4rem);
+}
+.boleto__plan {
+  font-size: 2rem;
+  text-transform: uppercase;
+  margin: 3rem 0 0 0;
+}
+.boleto__precio {
+  margin: 3rem 0 0 0;
+  font-weight: 900;
+  font-size: 4rem;
+}
+.boleto__enlace-contenedor {
+  margin-top: 5rem;
+  display: flex;
+  justify-content: center;
+}
+.boleto__enlace {
+  background-color: #007df4;
+  padding: 1.5rem 4rem;
+  color: #FFFFFF;
+  font-size: 1.8rem;
+  font-weight: 700;
+  border: none;
+  transition-property: background-color;
+  transition-duration: 0.3s;
+  text-align: center;
+  width: 100%;
+  display: inline-block;
+}
+.boleto__enlace:hover {
+  color: rgb(0, 98.8729508197, 193);
+  cursor: pointer;
+}
+.boleto__enlace {
+  width: auto;
+}
+
+.pagina_404__contenedor {
+  text-align: center;
+}
+.pagina_404__enlace {
+  color: #007df4;
 }
 
 .formulario {

@@ -18,7 +18,8 @@ class Router
     }
 
     public function comprobarRutas()
-    {
+    {   
+        // router para comprobar rutas.
 
         $url_actual = $_SERVER['PATH_INFO'] ?? '/';
         $method = $_SERVER['REQUEST_METHOD'];
@@ -32,7 +33,7 @@ class Router
         if ( $fn ) {
             call_user_func($fn, $this);
         } else {
-            echo "Página No Encontrada o Ruta no válida";
+            header('location: /404');
         }
     }
 
@@ -55,5 +56,7 @@ class Router
         }else{
             include_once __DIR__ . '/views/layout.php';
         }
+
+
     }
 }

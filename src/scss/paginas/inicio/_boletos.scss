@@ -4,7 +4,7 @@
 
 .boletos {
   &__grid {
-    @include mix.contenedor-md;
+    @include mix.contenedor-sm;
     @include mix.grid(1, 5rem);
   }
 }
@@ -13,6 +13,27 @@
   margin: 0 auto;
   padding: 6rem;
   border-radius: 2rem;
+  color: v.$blanco;
+  position: relative;
+
+
+  &::before, &::after{
+    position: absolute;
+    content: ' ';
+    background-color: v.$blanco;
+    width: 5rem;
+    height: 5rem;
+    top: calc(50% - 2.5rem);
+  }
+  &::before{
+    left: 0;
+    clip-path: circle(50% at 25% 50%);
+  }
+  &::after{
+    right: 0;
+    clip-path: circle(50% at 75% 50%);
+
+  }
 
   &--presencial {
     background-color: hsla(249, 100%, 50%, 1);
@@ -29,5 +50,32 @@
   }
   &--gratis {
     background-color: v.$azul;
+  }
+
+  &__logo{
+    @include mix.logo;
+    @include mix.texto-fluido(2rem, 4rem);
+
+  }
+  &__plan{
+    font-size: 2rem;
+    text-transform: uppercase;
+    margin: 3rem 0 0 0;
+
+  }
+  &__precio{
+    margin: 3rem 0 0 0;
+    font-weight: v.$black;
+    font-size: 4rem;
+  }
+
+  &__enlace-contenedor{
+    margin-top: 5rem;
+    display: flex;
+    justify-content: center;
+  }
+  &__enlace{
+    @include mix.boton(v.$azul, v.$blanco);
+    width: auto;
   }
 }

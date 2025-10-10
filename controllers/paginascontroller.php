@@ -112,4 +112,11 @@ class paginascontroller
             'eventos' => $eventos_formateado,
         ]);
     }
+
+       public static function fallo(Router $router){
+        
+        $router->render('/paginas/error/404',[
+            'titulo'=> 'pagina no enccontrada',
+        ]);
+    }
 }

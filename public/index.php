@@ -56,20 +56,24 @@ $router->post('/admin/eventos/crear',[EventosController::class, 'crear']);
 $router->get('/admin/eventos/editar',[EventosController::class, 'editar']);
 $router->post('/admin/eventos/editar',[EventosController::class, 'editar']);
 $router->post('/admin/eventos/eliminar',[EventosController::class, 'eliminar']);
+$router->get('/admin/registrados',[RegistradosController::class, 'index']);
+$router->get('/admin/regalos',[RegalosController::class, 'index']);
+
 
 // api
 $router->get('/api/eventos-horario',[ApiEventosController::class, 'index']);
 $router->get('/api/ponentes',[ApiPonentesController::class, 'index']);
 $router->get('/api/ponente',[ApiPonentesController::class, 'ponente']);
 
-$router->get('/admin/registrados',[RegistradosController::class, 'index']);
-$router->get('/admin/regalos',[RegalosController::class, 'index']);
 
 // area publica.
 $router->get('/',[paginascontroller::class, 'index']);
 $router->get('/devwebcamp',[paginascontroller::class, 'evento']);
 $router->get('/paquetes',[paginascontroller::class, 'paquetes']);
 $router->get('/workshops-conferencias',[paginascontroller::class, 'conferencias']);
+$router->get('/404', [paginascontroller::class, 'fallo']);
+
+//redireccionamienot de paginas.
 
 
 
