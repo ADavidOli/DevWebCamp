@@ -124,6 +124,8 @@ class ActiveRecord
         return $resultado;
     }
 
+
+
     // Busca un registro por su id
     public static function find($id)
     {
@@ -139,7 +141,12 @@ class ActiveRecord
         $resultado = self::consultarSQL($query);
         return array_shift($resultado);
     }
-
+    // ordenar eventos por orden.
+    public static function ordenar($columna, $orden) {
+        $query = "SELECT * FROM " . static::$tabla . " ORDER BY ${columna}  ${orden}";
+        $resultado = self::consultarSQL($query);
+        return $resultado;
+    }
     // Busqueda Where con Columna 
     public static function where($columna, $valor)
     {
@@ -154,7 +161,7 @@ class ActiveRecord
         foreach ($array as $key => $value) {
             if ($key == array_key_last($array)) {
                 $query .= " ${key}='${value}'";
-            }else{
+            } else {
                 $query .= "${key}='${value}' AND ";
             }
         }

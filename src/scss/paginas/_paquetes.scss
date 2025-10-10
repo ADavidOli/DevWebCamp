@@ -1,0 +1,36 @@
+@use 'base/variables' as v;
+@use 'base/mixins' as mix;
+@use 'sass:color';
+
+.paquetes{
+    &__grid{
+        @include mix.contenedor;
+        @include mix.grid(1, 3rem);
+        @include mix.tablet{
+            @include mix.grid(3, 3rem);
+            align-items: flex-start;
+        }
+    }
+}
+.paquete{
+    @include mix.card;
+    &:nth-child(2){
+        order: -1;
+
+        @include mix.tablet{
+            order: unset;
+        }
+    }
+
+    &__lista{
+        @include mix.resetlista;
+        line-height: 2;
+    }
+    &__precio{
+        font-size: 5rem;
+        margin: 3rem 0 0 0;
+        color: v.$azul;
+        font-weight: v.$black;
+        text-align: center;
+    }
+}

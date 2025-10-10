@@ -19,14 +19,19 @@
     };
 
     if (!Object.values(busqueda).includes("")) {
-      buscarEventos();
+
+      async function iniciarApp(){
+         await buscarEventos();
+        // resaltar la hora actual.
+        const id = inputOcultohora.value;
+        const horaSeleccionada = document.querySelector(`[data-hora-id="${id}"]`);
+        horaSeleccionada.classList.remove('horas__hora--deshabilitada');
+        horaSeleccionada.classList.add('horas__hora--seleccionada');
+        horaSeleccionada.onclick = seleccionarHora;
+      }
+      iniciarApp();
     }
 
-    // resaltar la hora actual.
-    // console.log(inputOcultohora.value);
-    const id = inputOcultohora.value;
-    const horaSeleccionada = document.querySelector(`[data-hora-id="${id}"]`);
-    console.log(horaSeleccionada.);
 
 
     function terminoBusqueda(e) {

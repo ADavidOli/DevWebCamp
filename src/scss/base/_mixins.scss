@@ -80,6 +80,26 @@
     color: transparent;
 }
 
+@mixin descripcion-pagina{
+    text-align: center;
+    font-size: 1.8rem;
+    font-weight: v.$delgada;
+    color: v.$gris-oscuro;
+    margin-bottom: 5rem;
+}
+
+@mixin card{
+    border: 1px solid color.adjust(v.$gris, $lightness: 10%);
+    padding: 3rem;
+
+    &__nombre{
+        font-weight: v.$black;
+        font-size: 2.5rem;
+        margin: 2rem 0;
+        
+    }
+}
+
 @mixin logo{
     color: v.$blanco;
     text-align: center;

@@ -8,7 +8,11 @@
             name="nombre"
             id="nombre"
             placeholder="Nombre evento"
-            value="<?php echo $evento->nombre ?? ''; ?>">
+            value="<?php
+
+use Model\ponente;
+
+ echo $evento->nombre ?? ''; ?>">
     </div>
     <div class="formulario__campo">
         <label class="formulario__label" for="descripcion">descripcion del evento</label>
@@ -74,7 +78,7 @@
             placeholder="Buscar Ponentes..." />
 
             <ul id="Listado-ponentes" class="Listado-ponentes"></ul>
-            <input type="hidden" name="ponente_id" value="">
+            <input type="hidden" name="ponente_id" value="<?php echo $evento->ponente_id?>">
     </div>
     <div class="formulario__campo">
         <label class="formulario__label" for="disponibles">Nombre del evento</label>
