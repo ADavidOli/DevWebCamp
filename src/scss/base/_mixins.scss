@@ -176,3 +176,7 @@
         font-weight: v.$bold;
     }
 }
+
+@mixin bg-gradient($bg_color){
+    background-image:linear-gradient(to left top, $bg_color, color.adjust($bg_color, $lightness: 15%));
+}
