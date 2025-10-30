@@ -24,6 +24,7 @@ class Router
         $url_actual = $_SERVER['PATH_INFO'] ?? '/';
         $method = $_SERVER['REQUEST_METHOD'];
 
+        // como tiene el this, todos los metodos de los controllers serán staticos
         if ($method === 'GET') {
             $fn = $this->getRoutes[$url_actual] ?? null;
         } else {

@@ -12,6 +12,7 @@ use Controllers\paginascontroller;
 use Controllers\PonentesController;
 use Controllers\RegalosController;
 use Controllers\RegistradosController;
+use Controllers\registroController;
 use Model\Eventos;
 
 $router = new Router();
@@ -73,8 +74,10 @@ $router->get('/paquetes',[paginascontroller::class, 'paquetes']);
 $router->get('/workshops-conferencias',[paginascontroller::class, 'conferencias']);
 $router->get('/404', [paginascontroller::class, 'fallo']);
 
-//redireccionamienot de paginas.
-
-
+//finalizar registro de paginas.
+$router->get('/finalizar-registro',[registroController::class,'crear']);
+$router->post('/finalizar-registro/gratis',[registroController::class,'gratis']);
+//boletos
+$router->get('/boleto',[registroController::class,'boleto']);
 
 $router->comprobarRutas();
